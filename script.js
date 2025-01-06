@@ -113,7 +113,7 @@ const quizData = [
       option.className = 'option';
   
       const radio = document.createElement('input');
-      radio.type = 'radio';
+      radio.type = 'radio'
       radio.name = 'quiz';
       radio.value = shuffledOptions[i];
   
