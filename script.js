@@ -201,3 +201,21 @@ const quizData = [
   showAnswerButton.addEventListener('click', showAnswer);
   
   displayQuestion();
+
+
+  // navigation
+
+  const menuButton = document.querySelector(".icon")
+
+function showMenu () {
+const navContainer = document.querySelector("ul")
+const navItems = document.querySelectorAll("li")
+
+navContainer.classList.toggle("navContainer")
+
+for (let i = 0; i < navItems.length; i++) {
+    navItems[i].classList.toggle("show")
+}
+}
+
+menuButton.addEventListener("click", showMenu) 

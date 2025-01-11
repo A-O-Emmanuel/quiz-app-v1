@@ -3,10 +3,25 @@
 <head>
   <title>Front-End Quiz App</title>
   <link  href="css/styles.css" rel="stylesheet" >
+
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <ul class="nav">
+
+    <i class="fa-solid fa-bars icon"></i>
+    <li class="nav_item__about">About</li>
+    <li class="nav_item__skills">My SKills</li>
+    <li class="nav_item__projects">Projects</li>
+    <li class="nav_item__contact">Contact Me</li>
+</ul>
+
+
   <div class="container">
-    <h1 class="title">Front End Quiz</h1>
     <div class="hint-container">
        <h2>Hint!</h2>
     <ul>
@@ -29,6 +44,8 @@
     <button id="retry" class="button hide">Retry</button>
     <button id="showAnswer" class="button hide">Show Answer</button>
   </div>
+
+  <script src="https://kit.fontawesome.com/ba843ab90c.js" crossorigin="anonymous"></script>
   <script src="script.js"></script>
 </body>
 </html>
