@@ -219,3 +219,49 @@ for (let i = 0; i < navItems.length; i++) {
 }
 
 menuButton.addEventListener("click", showMenu) 
+
+
+
+//sign in and register form
+
+const signinBtn = document.getElementById('signin-btn');
+const registerBtn = document.getElementById('register-btn');
+const signinCloseBtn = document.getElementById('signin-close-btn');
+const registerCloseBtn = document.getElementById('register-close-btn');
+const signinForm = document.getElementById('signin-form');
+const registerForm = document.getElementById('register-form');
+const overlay = document.getElementById('form-overlay');
+
+// Function to show the overlay with the specified form
+function showForm(formToShow) {
+  overlay.classList.remove('hidden');
+  if (formToShow === 'signin') {
+    signinForm.classList.remove('hidden');
+    registerForm.classList.add('hidden');
+  } else if (formToShow === 'register') {
+    registerForm.classList.remove('hidden');
+    signinForm.classList.add('hidden');
+  }
+}
+
+// Function to hide the overlay
+function hideForm() {
+  overlay.classList.add('hidden');
+}
+
+// Show Sign-In Form when "Sign In" button is clicked
+signinBtn.addEventListener('click', () => showForm('signin'));
+
+// Show Register Form when "Register" button is clicked
+registerBtn.addEventListener('click', () => showForm('register'));
+
+// Close buttons for both forms
+signinCloseBtn.addEventListener('click', hideForm);
+registerCloseBtn.addEventListener('click', hideForm);
+
+// Optional: Close overlay when clicking outside the forms
+overlay.addEventListener('click', (e) => {
+  if (e.target === overlay) {
+    hideForm();
+  }
+});

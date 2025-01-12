@@ -12,7 +12,13 @@ navigation */
   font-family: "Lato", sans-serif;
   font-weight: 400;
   font-style: normal;
-} 
+}
+
+#signin-btn,
+#register-btn,
+#sign-out {
+  cursor: pointer;
+}
 
 .nav {
   display: flex;
@@ -142,4 +148,132 @@ margin-left: 20px;
 }
 
 
+
+/* form */
+button {
+  cursor: pointer;
+  padding: 10px 15px;
+  font-size: 16px;
+}
+
+/* Overlay Styles */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+
+/* Form Container Styles */
+.form-container {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+}
+
+.form-container h2 {
+  margin: 0 0 15px;
+}
+
+.form-container label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.form-container input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-container button[type="submit"] {
+  background-color: #00008B;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+/* form */
+/* General Styles */
+
+/* Overlay Styles */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Form Container Styles */
+.form-container {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+}
+
+.form-container h2 {
+  margin: 0 0 15px;
+}
+
+.form-container label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.form-container input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-container button[type="submit"] {
+  background-color: #00008B;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  border: none;
+  background: none;
+  color: #333;
+  cursor: pointer;
+}
 
