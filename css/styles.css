@@ -107,15 +107,33 @@ margin-left: 20px;
 .options {
   margin-bottom: 20px;
   font-size: 2rem;
-  color: #ffff;
+  padding-left: 10px;
 }
 
 .option {
   display: block;
   margin-bottom: 20px;
   padding: 10px;
-  background: #4A90E2;
   border-radius: 15px;
+}
+
+.red {
+  color: red;
+}
+
+.radio {
+  width: 20px; 
+  height: 20px; 
+  transform: scale(1.5); 
+  cursor: pointer; 
+}
+
+.radio:checked {
+  accent-color: #007BFF; /* Change the color when checked */
+}
+
+.option-text {
+  color: red;
 }
 
 .button {

@@ -115,6 +115,7 @@ const quizData = [
       const radio = document.createElement('input');
       radio.type = 'radio'
       radio.name = 'quiz';
+      radio.className = 'radio'
       radio.value = shuffledOptions[i];
   
       const optionText = document.createTextNode(shuffledOptions[i]);
@@ -128,7 +129,7 @@ const quizData = [
     quizContainer.appendChild(questionElement);
     quizContainer.appendChild(optionsElement);
   }
-  
+
   function checkAnswer() {
     const selectedOption = document.querySelector('input[name="quiz"]:checked');
     if (selectedOption) {
@@ -249,6 +250,7 @@ function hideForm() {
   overlay.classList.add('hidden');
 }
 
+  
 // Show Sign-In Form when "Sign In" button is clicked
 signinBtn.addEventListener('click', () => showForm('signin'));
 
@@ -256,12 +258,99 @@ signinBtn.addEventListener('click', () => showForm('signin'));
 registerBtn.addEventListener('click', () => showForm('register'));
 
 // Close buttons for both forms
-signinCloseBtn.addEventListener('click', hideForm);
 registerCloseBtn.addEventListener('click', hideForm);
 
-// Optional: Close overlay when clicking outside the forms
-overlay.addEventListener('click', (e) => {
-  if (e.target === overlay) {
-    hideForm();
+
+//get signin form info
+const signin = document.getElementById('signin')
+
+signin.addEventListener('submit', async function(event) {
+  event.preventDefault();
+
+  const email = document.getElementById('signin-email').value;
+  const password = document.getElementById('signin-password').value;
+
+  const requestData = {
+    email, 
+    password
   }
-});
+
+  try {
+     const request = await fetch(`https://stark-depths-38867-6632fbd1c5ac.herokuapp.com/signin`, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify(requestData)
+   })
+
+   const res = await request.json()
+
+   if(!res) {
+    alert("Sorry You could not be signed in, please try again later.")
+   } else {
+     alert("Welcome to front End Quiz, Read the Hints and Enjoy")
+     hideForm()
+   }
+   const token = res.token
+   localStorage.setItem('token', token)
+
+   
+  }catch(err) {
+    console.log(err)
+    alert("Sorry you could not be signed in, please try agian later.")
+  }
+})
+
+
+//chech if there is token and toggle form visisbility
+const toggleForm = () => {
+  const token = localStorage.getItem('token')
+  if (!token) {
+   showForm('signin')
+  }
+}
+
+document.addEventListener('DOMContentLoaded', toggleForm);
+
+//listen for storage events to detect if there is a token 
+window.addEventListener('storage', toggleForm)
+
+//get registration form info
+const register = document.getElementById('register');
+
+register.addEventListener('submit', async function(event) {
+  event.preventDefault();
+
+  //get form values
+  const email = document.getElementById('register-email').value;
+  const password = document.getElementById('register-password').value;
+  const confirmPassword = document.getElementById('confirm-password').value;
+
+  //check if passwords match
+  if(password !== confirmPassword) {
+    document.getElementById('message').textContent = "Passwords do not match";
+    return;
+  } else if (password === confirmPassword) {
+    document.getElementById('message').textContent = "";
+  }
+
+  const requestData = {
+    email,
+    password,
+    confirmPassword
+  }
+
+  if(requestData) return alert("This is a demo App, and does not accept user data")
+
+  console.log(requestData)
+})
+
+//sign out.
+const signOut = document.getElementById("sign-out");
+
+
+signOut.addEventListener('click', () => {
+  localStorage.removeItem('token')
+  toggleForm()
+})
